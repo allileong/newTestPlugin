@@ -14,6 +14,7 @@ newTestPlugin
 
 <!-- toc -->
 * [Debugging your plugin](#debugging-your-plugin)
+* [newTestPlugin](#new-test-plugin)
 <!-- tocstop -->
 <!-- install -->
 <!-- usage -->

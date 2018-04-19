@@ -1,0 +1,58 @@
+{
+  "name": "newTestPlugin",
+  "version": "0.0.0",
+  "author": "Alli @allileong",
+  "bugs": "https://github.com/allileong/newTestPlugin/issues",
+  "dependencies": {
+    "@oclif/command": "^1.4.13",
+    "@oclif/config": "^1.6.4",
+    "@oclif/errors": "^1.0.4",
+    "@salesforce/command": "^0.1.1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.13.1",
+    "@oclif/nyc-config": "1",
+    "@oclif/plugin-help": "^1.2.4",
+    "@oclif/test": "1",
+    "@salesforce/dev-config": "^1.0.4",
+    "@types/chai": "4",
+    "@types/mocha": "5",
+    "@types/node": "9",
+    "chai": "4",
+    "globby": "^8.0.1",
+    "mocha": "5",
+    "nyc": "11",
+    "sinon": "^4.5.0",
+    "ts-node": "5",
+    "tslib": "1",
+    "typescript": "2.8"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    ".oclif.manifest.json",
+    "/lib",
+    "/messages"
+  ],
+  "homepage": "https://github.com/allileong/newTestPlugin",
+  "keywords": [
+    "sfdx-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "allileong/newTestPlugin",
+  "scripts": {
+    "postpack": "rm -f .oclif.manifest.json",
+    "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
+    "prepare": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
