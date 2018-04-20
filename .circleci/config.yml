@@ -42,14 +42,14 @@ jobs:
 
 workflows:
   version: 2
-  "newTestPlugin":
+  new_test_plugins:
     jobs:
       - node-latest
       - node-8
       - release:
-        context: org-global
-        filters:
-          branches: {only: master}
-        requires:
-          - node-latest
-          - node-8
+          context: org-global
+          filters:
+            branches: {only: master}
+          requires:
+            - node-latest
+            - node-8
