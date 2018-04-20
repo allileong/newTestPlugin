@@ -35,8 +35,7 @@ jobs:
     <<: *test
     steps:
       - add_ssh_keys:
-        fingerprints:
-          - "d1:07:d9:4a:90:d5:fc:5e:2b:b2:41:14:73:5a:c0:9f"
+        fingerprints: [d1:07:d9:4a:90:d5:fc:5e:2b:b2:41:14:73:5a:c0:9f]
       - checkout
       - attach_workspace: {at: node_modules}
       - run: ./.circleci/setup_git
