@@ -30,6 +30,15 @@ jobs:
     <<: *test
     docker:
       - image: node:8
+  
+  release:
+    <<: *test
+    steps:
+      - add_ssh_keys
+      - checkout
+      - attach_workspace: {at: node_modules}
+      - run: ./circleci/setup_git
+      - run: ./circleci/release
 
 workflows:
   version: 2
@@ -37,3 +46,10 @@ workflows:
     jobs:
       - node-latest
       - node-8
+      - release:
+        context: org-global
+        filters:
+          branches: {only: master}
+        requires:
+          - node-latest
+          - node-8
